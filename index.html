@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Meu Único Amor 💖</title>
+    
+    <!-- Fontes Premium do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Dancing+Script:wght@700&family=Nunito:wght@400;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           VARIÁVEIS DE CORES & TEMA
+        ========================================= */
+        :root {
+            --hk-pink: #ffb6c1;
+            --hk-dark-pink: #ff69b4;
+            --frieren-purple: #9370db;
+            --frieren-light: #e6e6fa;
+            --saint-gold: #ffd700;
+            --saint-glow: rgba(255, 215, 0, 0.6);
+            --bg-gradient: linear-gradient(135deg, #fff0f5 0%, #f3e5f5 50%, #fff8dc 100%);
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.6);
+        }
+
+        /* =========================================
+           RESETS E CONFIGURAÇÕES GERAIS
+        ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: #4a4a4a;
+            overflow-x: hidden;
+            cursor: crosshair; /* Cursor delicado */
+        }
+
+        /* Container de Partículas em tela cheia */
+        #particles-js {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Efeito de revelar ao rolar (Scroll Reveal) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           GLASSMORPHISM (Efeito de Vidro)
+        ========================================= */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--glass-border);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* =========================================
+           CABEÇALHO FRUFRU HERO
+        ========================================= */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: var(--hk-dark-pink);
+            text-shadow: 2px 2px 10px rgba(255, 105, 180, 0.3);
+            animation: float 4s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #6a5acd;
+            margin-top: 10px;
+            font-style: italic;
+            z-index: 2;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* =========================================
+           SEÇÃO 1: FRIEREN (Magia e Flores)
+        ========================================= */
+        .frieren-section {
+            border-color: var(--frieren-purple);
+        }
+        
+        .frieren-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--frieren-purple);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .magic-circle {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed var(--frieren-purple);
+            border-radius: 50%;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: spin 15s linear infinite;
+            box-shadow: 0 0 30px rgba(147, 112, 219, 0.4);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .magic-circle:hover {
+            box-shadow: 0 0 50px rgba(147, 112, 219, 0.8);
+            transform: scale(1.05);
+        }
+
+        .magic-inner {
+            font-size: 3rem;
+            animation: spin-reverse 15s linear infinite;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+
+        /* =========================================
+           SEÇÃO 2: SANTOS & BÊNÇÃOS (Ouro e Luz)
+        ========================================= */
+        .saints-section {
+            border-color: var(--saint-gold);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255, 215, 0, 0.1));
+        }
+
+        .saints-section h2 {
+            font-family: 'Cinzel', serif;
+            color: #b8860b;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Animação da Vela Realista */
+        .candle-container {
+            margin: 30px auto;
+            cursor: pointer;
+            width: 60px;
+            height: 120px;
+            position: relative;
+        }
+
+        .candle-body {
+            width: 40px;
+            height: 100px;
+            background: linear-gradient(to right, #fdf5e6, #fff, #fdf5e6);
+            border-radius: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 10px;
+            box-shadow: inset 0 -10px 10px rgba(0,0,0,0.1);
+        }
+
+        .flame {
+            width: 15px;
+            height: 25px;
+            background: radial-gradient(ellipse at bottom, #fff 10%, #ffd700 40%, #ff4500 80%, transparent 100%);
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -20px;
+            left: 22.5px;
+            opacity: 0;
+            transition: opacity 1s;
+            box-shadow: 0 0 20px var(--saint-gold), 0 0 40px #ff4500;
+            animation: flicker 0.1s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1) translateX(0); opacity: 0.9; }
+            100% { transform: scale(1.1) translateX(1px); opacity: 1; }
+        }
+
+        .blessing-text {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 1s ease;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #8b6508;
+            margin-top: 20px;
+        }
+
+        /* =========================================
+           SEÇÃO 3: HELLO KITTY & FRUFRU (Cards 3D)
+        ========================================= */
+        .kitty-section h2 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--hk-dark-pink);
+            font-size: 3rem;
+        }
+
+        .cards-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Lógica do Card 3D que vira no hover */
+        .flip-card {
+            background-color: transparent;
+            width: 250px;
+            height: 300px;
+            perspective: 1000px; /* Cria o efeito 3D */
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.2);
+            border: 3px dashed var(--hk-pink);
+        }
+
+        .flip-card-front {
+            background: #fff;
+            color: var(--hk-dark-pink);
+            font-size: 4rem;
+        }
+
+        .flip-card-back {
+            background: var(--hk-pink);
+            color: white;
+            transform: rotateY(180deg);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* =========================================
+           BOTÃO GIGANTE FINAL
+        ========================================= */
+        .btn-glow {
+            background: linear-gradient(45deg, #ff69b4, #9370db, #ff69b4);
+            background-size: 200% 200%;
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            animation: gradientShift 3s ease infinite;
+            transition: transform 0.2s;
+            margin: 40px auto;
+            display: block;
+        }
+
+        .btn-glow:active { transform: scale(0.95); }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Efeito de Partículas via JS */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            border-radius: 50%;
+            z-index: 10000;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg) scale(0); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container onde as partículas interativas vão ser renderizadas -->
+    <div id="particles-js"></div>
+
+    <!-- HEADER / HERO -->
+    <header class="hero">
+        <h1>Para a Minha Namorada Perfeita 🎀</h1>
+        <p>Apenas uma little página, com tudo que aprendi até agora, para demonstrar meu amor por ti, gatinha</p>
+    </header>
+
+    <!-- SEÇÃO 1: FRIEREN -->
+    <section class="glass-panel frieren-section reveal">
+        <h2> O Feitiço Favorito da Frieren</h2>
+        <p>A Frieren passou um tempão aprendendo feitiço pra criar flores, pra mim foi muito mais fácil, bastou te conhecer e meu mundo floriu hehe.</p>
+        <p style="font-size: 0.9rem; color: gray; margin-top: 10px;">(Clique no círculo mágico)</p>
+        
+        <div class="magic-circle" onclick="castFlowerMagic(event)">
+            <div class="magic-inner">🌸</div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: SANTOS CATÓLICOS -->
+    <section class="glass-panel saints-section reveal">
+        <h2>🕊️ Santuário do Nosso Amor</h2>
+        <p>Que Santo Antônio continue abençoando nosso namoro e que Nossa Senhora nos cubra com seu manto de amor e proteção.</p>
+        <p style="font-size: 0.9rem; color: gray; margin-top: 10px;">(Toque na vela para acender a nossa bênção)</p>
+
+        <div class="candle-container" onclick="lightCandle()">
+            <div class="flame" id="candleFlame"></div>
+            <div class="candle-body"></div>
+        </div>
+
+        <div class="blessing-text" id="blessingText">
+            "Senhor, que a nossa união seja repleta de paz, fidelidade e carinho infinito. Que os anjos guardem o nosso sorriso todos os dias, amém 🙏"
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: HELLO KITTY -->
+    <section class="glass-panel kitty-section reveal">
+        <h2>🎀 Cantinho Fda boiolice do Iarley</h2>
+        <p>Passe o mouse (ou toque) nas cartinhas pra descobrir pq eu sou completamente apaixonado por você</p>
+
+        <div class="cards-grid">
+            <!-- Card 1 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">🥰</div>
+                    <div class="flip-card-back">
+                        <p>O seu sorriso é a coisa mais linda que eu já vi em toda a minha vida. Ele é tudo que eu mais quero na minha vida.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">🎀</div>
+                    <div class="flip-card-back">
+                        <p>Amo o seu jeitinho adorável e inteligente. Você é a minha bonequinha perfeita</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">🫂</div>
+                    <div class="flip-card-back">
+                        <p>O seu abraço é o meu lar.Sinto o amor de Deus cuidando de mim quando to contigo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL -->
+    <div style="text-align: center; margin-bottom: 100px;">
+        <button class="btn-glow reveal" onclick="megaExplosion(event)">
+            💖 Receba um bejo do seu namorildo.
+        </button>
+    </div>
+
+    <!-- =========================================
+         JAVASCRIPT (LÓGICA E EFEITOS)
+    ========================================= -->
+    <script>
+        // 1. SISTEMA DE SCROLL REVEAL (Intersection Observer)
+        // Faz os elementos aparecerem suavemente quando entram na tela
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // 2. MAGIA DA FRIEREN (Explosão de Flores)
+        function castFlowerMagic(event) {
+            createParticles(event.clientX, event.clientY, ['🌸', '🌺', '🌷', '✨', '🪻'], 40);
+        }
+
+        // 3. VELA DOS SANTOS (Acender e revelar texto)
+        function lightCandle() {
+            const flame = document.getElementById('candleFlame');
+            const text = document.getElementById('blessingText');
+            
+            // Acende a vela
+            flame.style.opacity = '1';
+            
+            // Revela o texto com animação fluida
+            text.style.opacity = '1';
+            text.style.maxHeight = '200px';
+            text.style.paddingTop = '20px';
+
+            // Efeito de luz caindo
+            createParticles(window.innerWidth / 2, window.innerHeight / 2, ['✨', '🕊️', '⭐', '💛'], 20);
+        }
+
+        // 4. MEGA EXPLOSÃO DO BOTÃO FINAL
+        function megaExplosion(event) {
+            createParticles(event.clientX, event.clientY, ['💖', '🎀', '💋', '🥰', '💕'], 100);
+        }
+
+        // 5. MOTOR DE PARTÍCULAS CUSTOMIZADO (DOM Manipulation)
+        function createParticles(x, y, symbols, amount) {
+            const container = document.getElementById('particles-js');
+            
+            for (let i = 0; i < amount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+                
+                // Posição inicial ao redor do clique
+                const startX = x + (Math.random() * 100 - 50);
+                const startY = y + (Math.random() * 100 - 50);
+                
+                particle.style.left = startX + 'px';
+                particle.style.top = startY + 'px';
+                
+                // Tamanho e duração aleatórios para efeito 3D
+                const size = Math.random() * 20 + 15;
+                particle.style.fontSize = size + 'px';
+                
+                const duration = Math.random() * 3 + 2;
+                particle.style.animationDuration = duration + 's';
+                
+                // Direção aleatória da queda
+                const sway = (Math.random() * 200 - 100) + 'px';
+                particle.style.setProperty('--tx', sway);
+
+                container.appendChild(particle);
+
+                // Remove do DOM após a animação
+                setTimeout(() => {
+                    particle.remove();
+                }, duration * 1000);
+            }
+        }
+
+        // 6. EFEITO RASTRO DE FADA NO MOUSE (MÁGICA)
+        document.addEventListener('mousemove', function(e) {
+            // Limita a criação para não travar o navegador
+            if (Math.random() > 0.8) {
+                const spark = document.createElement('div');
+                spark.className = 'particle';
+                spark.innerText = ['✨', '🌸', '🎀'][Math.floor(Math.random() * 3)];
+                spark.style.left = e.clientX + 'px';
+                spark.style.top = e.clientY + 'px';
+                spark.style.fontSize = '12px';
+                spark.style.animationDuration = '1.5s';
+                
+                document.getElementById('particles-js').appendChild(spark);
+
+                setTimeout(() => { spark.remove(); }, 1500);
+            }
+        });
+    </script>
+   <!-- BOTÃO PARA A SEGUNDA PÁGINA (Corrigido para ficar sempre visível) -->
+    <div style="text-align: center; margin-bottom: 50px;">
+        <a href="sagrado.html" style="text-decoration: none;">
+            <button class="btn-glow" style="background: linear-gradient(45deg, #b8860b, #ffd700, #b8860b); color: #4a3600; text-shadow: none; box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); opacity: 1; transform: translateY(0);">
+                ✨ Entrar no Santuário do Nosso Amor ✨
+            </button>
+        </a>
+    </div>
+</body>
+</html>

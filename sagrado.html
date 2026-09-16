@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Santuário do Nosso Amor ✨</title>
+    
+    <!-- Fontes Premium Elegantes e Sagradas -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           TEMA ESCURO E DOURADO (DARK & GOLD)
+        ========================================= */
+        :root {
+            --dark-bg: #0a0a0f;
+            --darker-bg: #050507;
+            --gold-light: #f9e596;
+            --gold-main: #d4af37;
+            --gold-dark: #aa8529;
+            --text-light: #e2e8f0;
+            --glass-bg: rgba(20, 20, 25, 0.7);
+            --glass-border: rgba(212, 175, 55, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at center top, #1a1a24 0%, var(--darker-bg) 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Efeito de Poeira Dourada Divina (JS) */
+        #divine-sparks {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Botão Voltar */
+        .back-btn {
+            position: fixed;
+            top: 20px; left: 20px;
+            color: var(--gold-main);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            border: 1px solid var(--gold-main);
+            padding: 8px 15px;
+            border-radius: 5px;
+            z-index: 100;
+            transition: 0.3s;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .back-btn:hover {
+            background: var(--gold-main);
+            color: var(--dark-bg);
+            box-shadow: 0 0 15px var(--gold-main);
+        }
+
+        /* =========================================
+           CABEÇALHO
+        ========================================= */
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--gold-light);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #a0aec0;
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           CARDS DAS LIÇÕES (GLASSMORPHISM DARK)
+        ========================================= */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .lesson-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efeito de brilho ao passar o mouse */
+        .lesson-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+
+        /* Títulos dos Cards */
+        .lesson-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--gold-main);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 15px;
+        }
+
+        /* Versículos */
+        .verse {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--gold-light);
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold-main);
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Texto da Lição */
+        .lesson-text {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            text-align: justify;
+        }
+
+        .lesson-text strong {
+            color: var(--gold-light);
+            font-weight: 400;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           FRASE FINAL (GRANDE DESTAQUE)
+        ========================================= */
+        .final-phrase-container {
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-phrase {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: var(--gold-light);
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 60px rgba(212, 175, 55, 0.4);
+            animation: pulse-glow 3s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.6); transform: scale(1); }
+            100% { text-shadow: 0 0 40px rgba(212, 175, 55, 1), 0 0 80px rgba(212, 175, 55, 0.6); transform: scale(1.02); }
+        }
+
+        /* Scroll Reveal Effect */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos Responsivos */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .lesson-title { font-size: 1.8rem; }
+            .final-phrase { font-size: 3rem; }
+            .lesson-card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="divine-sparks"></div>
+
+    <a href="index.html" class="back-btn">⬅ Voltar</a>
+
+    <header>
+        <h1 class="reveal">O Altar do Nosso Amor</h1>
+        <p class="reveal">Que o nosso relacionamento seja um caminho rumo ao céu, espelhado nas virtudes da Sagrada Família.</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- LIÇÃO DE JESUS -->
+        <div class="lesson-card reveal">
+            <h2 class="lesson-title">✝️ O Amor de Jesus</h2>
+            <div class="verse">
+                "O meu mandamento é este: amem-se uns aos outros como eu os amei. Ninguém tem maior amor do que aquele que dá a sua vida pelos seus amigos."<br>
+                <span style="font-size: 0.9rem; color: #a0aec0;">— João 15:12-13</span>
+            </div>
+            <p class="lesson-text">
+                O amor de Cristo nos ensina que amar é, acima de tudo, uma decisão de <strong>doação e sacrifício</strong>. Ele nos mostra que o verdadeiro namoro não busca apenas o próprio prazer, mas sim a salvação e o bem do outro. Que Jesus seja sempre o centro da nossa relação, para que eu saiba te amar com paciência, te perdoar com misericórdia e colocar a sua felicidade e a sua santidade acima de mim mesmo.
+            </p>
+        </div>
+
+        <!-- LIÇÃO DE NOSSA SENHORA -->
+        <div class="lesson-card reveal">
+            <h2 class="lesson-title">🌹 A Doçura de Nossa Senhora</h2>
+            <div class="verse">
+                "Então disse Maria: Eis aqui a serva do Senhor; cumpra-se em mim segundo a tua palavra."<br>
+                <span style="font-size: 0.9rem; color: #a0aec0;">— Lucas 1:38</span>
+            </div>
+            <p class="lesson-text">
+                Maria, com seu "Fiat" (Faça-se), nos ensina a virtude da <strong>confiança e da pureza</strong>. Com ela, aprendo a admirar a sua doçura e a sua feminilidade. Que o nosso namoro seja guardado sob o manto sagrado da Virgem Maria, para que saibamos acolher a vontade de Deus nos nossos planos, vivendo um amor puro, casto, paciente e cheio de ternura, assim como o coração da Mãe.
+            </p>
+        </div>
+
+        <!-- LIÇÃO DE SÃO JOSÉ -->
+        <div class="lesson-card reveal">
+            <h2 class="lesson-title">🛠️ A Força de São José</h2>
+            <div class="verse">
+                "Ao despertar, José fez o que o anjo do Senhor lhe havia mandado e recebeu em sua casa a sua esposa."<br>
+                <span style="font-size: 0.9rem; color: #a0aec0;">— Mateus 1:24</span>
+            </div>
+            <p class="lesson-text">
+                São José não precisou de muitas palavras na Bíblia para demonstrar o seu amor; ele demonstrou através da <strong>ação, da proteção e do silêncio</strong>. Ele é o modelo de homem que eu desejo ser para você: alguém que não foge nos momentos de dificuldade, que te protege de todo mal, que guarda o seu coração e que constrói, com trabalho e fé, um lar seguro para nós.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- FRASE FINAL (O ÁPICE DA PÁGINA) -->
+    <div class="final-phrase-container reveal">
+        <h1 class="final-phrase">Meu amor, que eu seja seu São José 🤍</h1>
+    </div>
+
+    <!-- =========================================
+         JAVASCRIPT (Animações e Efeitos)
+    ========================================= -->
+    <script>
+        // Efeito Scroll Reveal (Faz os cards aparecerem suavemente)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Motor de Partículas: "Poeira de Ouro Divina" flutuando suavemente de baixo para cima
+        const sparksContainer = document.getElementById('divine-sparks');
+
+        function createSpark() {
+            const spark = document.createElement('div');
+            
+            // Estilos diretamente no JS para não poluir o CSS com animações complexas individuais
+            const size = Math.random() * 3 + 1; // 1px a 4px
+            const left = Math.random() * 100; // Posição horizontal 0 a 100%
+            const duration = Math.random() * 10 + 5; // Duração de 5s a 15s (lento)
+            
+            spark.style.position = 'absolute';
+            spark.style.bottom = '-10px';
+            spark.style.left = left + 'vw';
+            spark.style.width = size + 'px';
+            spark.style.height = size + 'px';
+            spark.style.backgroundColor = Math.random() > 0.5 ? '#d4af37' : '#f9e596';
+            spark.style.borderRadius = '50%';
+            spark.style.boxShadow = `0 0 ${size * 2}px ${spark.style.backgroundColor}`;
+            spark.style.opacity = Math.random() * 0.6 + 0.2;
+            spark.style.pointerEvents = 'none';
+            
+            // Animação de subida usando Web Animations API
+            const animation = spark.animate([
+                { transform: `translateY(0) translateX(0) scale(1)`, opacity: spark.style.opacity },
+                { transform: `translateY(-50vh) translateX(${Math.random() * 20 - 10}px) scale(1.5)`, opacity: Math.random() * 0.8 + 0.4, offset: 0.5 },
+                { transform: `translateY(-105vh) translateX(${Math.random() * 40 - 20}px) scale(0)`, opacity: 0 }
+            ], {
+                duration: duration * 1000,
+                easing: 'ease-in-out',
+                fill: 'forwards'
+            });
+
+            sparksContainer.appendChild(spark);
+
+            // Remove a partícula quando a animação termina
+            animation.onfinish = () => spark.remove();
+        }
+
+        // Criar uma nova faísca divina a cada 300ms
+        setInterval(createSpark, 300);
+
+        // Criar faíscas iniciais para a tela não começar vazia
+        for(let i = 0; i < 30; i++) {
+            setTimeout(createSpark, Math.random() * 3000);
+        }
+    </script>
+    <!-- BOTÃO PARA A PÁGINA DE PERDÃO -->
+    <div style="text-align: center; margin-top: 50px; padding-bottom: 50px; position: relative; z-index: 10;">
+        <a href="perdao.html" style="text-decoration: none;">
+            <button style="background: transparent; border: 1px solid #a0aec0; color: #a0aec0; padding: 12px 30px; font-family: 'Montserrat', sans-serif; font-size: 1rem; border-radius: 30px; cursor: pointer; transition: all 0.3s; letter-spacing: 1px;">
+                Preciso te dizer mais uma coisa...
+            </button>
+        </a>
+    </div>
+</body>
+</html>

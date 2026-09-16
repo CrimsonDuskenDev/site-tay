@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Pedido de Perdão</title>
+    
+    <!-- Fontes Elegantes e Sóbrias -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           TEMA SÓBRIO E REFLEXIVO
+        ========================================= */
+        :root {
+            --bg-color: #0f172a; /* Azul noturno escuro */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.6);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --accent: #cbd5e1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 70%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 40px 20px;
+        }
+
+        /* Efeito de luzes lentas no fundo (Bokeh) */
+        .ambient-light {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            z-index: -1;
+            animation: drift 20s infinite alternate linear;
+        }
+
+        .light-1 { width: 300px; height: 300px; background: #334155; top: 10%; left: 10%; }
+        .light-2 { width: 400px; height: 400px; background: #1e293b; bottom: 10%; right: 10%; }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Botão Voltar */
+        .back-btn {
+            position: absolute;
+            top: 30px; left: 30px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--text-main);
+            border-bottom: 1px solid var(--text-main);
+        }
+
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 50px;
+            max-width: 600px;
+        }
+
+        header h1 {
+            font-family: 'Lora', serif;
+            font-weight: 400;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Container dos Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 700px;
+            width: 100%;
+            margin-bottom: 80px;
+        }
+
+        /* Estilo dos Cards */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: left;
+            transition: transform 0.4s ease, background 0.4s ease;
+        }
+
+        .card:hover {
+            background: rgba(40, 53, 72, 0.7);
+            transform: translateY(-5px);
+        }
+
+        .card-number {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card h2 {
+            font-family: 'Lora', serif;
+            font-weight: 400;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            font-weight: 300;
+        }
+
+        /* Citação final */
+        .final-plea {
+            text-align: center;
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-top: 20px;
+            margin-bottom: 60px;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        /* Animação Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Luzes de fundo -->
+    <div class="ambient-light light-1"></div>
+    <div class="ambient-light light-2"></div>
+
+    <a href="sagrado.html" class="back-btn">Voltar</a>
+
+    <header class="reveal">
+        <h1>Perdão</h1>
+        <p>Eu não posso apagar o que falei, mas vou escrever porque você merece muito mais do que eu tenho te proporcionado. </p>
+    </header>
+
+    <div class="cards-container">
+        
+        <!-- CARD 1 -->
+        <div class="card reveal">
+            <span class="card-number">I.</span>
+            <h2>O Peso das Minhas Palavras</h2>
+            <p>Eu sei que falhei. No momento em que eu deveria ter sido um porto seguro, fui nojento, impaciente e proferi palavras que te ofenderam. Reconheço o peso do que eu disse e não tento justificar os meus erros. Nenhuma ofensa deveria ter saído da minha boca contra a mulher que eu escolhi amar.</p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card reveal">
+            <span class="card-number">II.</span>
+            <h2>A dor que te causei</h2>
+            <p>Dói sim em mim saber que eu fui o motivo de sua tristeza, diretamente, eu sei quão lixo fui. Meu papel é cuidar do seu coração e te proteger, inclusive de mim mesmo. Me arrependo profundamente (escrevo isso enquanto vc chora, sinto o peso de cada lágrima que vc derrama por minha causa)</p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card reveal">
+            <span class="card-number">III.</span>
+            <h2>Compromisso</h2>
+            <p> Como você mesma me disse e me mostrou, o arrependimento depende de uma vontade genuína de melhorar. Eu me comprometo em ser melhor, manso e humilde contigo, não esperar o pior, tratar minha princesinha como ela merece, sem ofensas e sem idiotices da minha parte.</p>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="card reveal">
+            <span class="card-number">IV.</span>
+            <h2>Perdão</h2>
+            <p>Eu te peço perdão do fundo da minha alma. O seu perdão não é obrigação nenhuma, mas te peço. Prometo honrar a sua paciência e provar, todos os dias, que o meu amor por você é muito maior do que as minhas falhas.</p>
+        </div>
+
+    </div>
+
+    <div class="final-plea reveal">
+        "Eu amo você. E prometo cuidar das minhas palavras, assim como prometo cuidar de você."
+    </div>
+
+    <script>
+        // Lógica para revelar os cards suavemente ao rolar a página
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Força o primeiro card e o header a aparecerem imediatamente ao carregar
+        window.onload = () => {
+            setTimeout(() => {
+                const reveals = document.querySelectorAll('.reveal');
+                if(reveals[0]) reveals[0].classList.add('active');
+                if(reveals[1]) reveals[1].classList.add('active');
+            }, 100);
+        };
+    </script>
+</body>
+</html>
